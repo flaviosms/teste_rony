@@ -3,11 +3,12 @@ variable "region_id" {
 }
 
 variable "prefix" {
-  default = "prefix"
+  default = "TTO"
+  #Teste Terraform Onboard
 }
 
 variable "account" {
-  default = 123456789
+  default = 546048762108
 }
 
 # Prefix configuration and project common tags
@@ -22,39 +23,23 @@ locals {
     BusinessUnit = "Data"
     Billing      = "Infrastructure"
     Environment  = terraform.workspace
-    UserEmail    = "rony@a3data.com.br"
+    UserEmail    = "flavio.serrano@a3data.com.br"
   }
 }
 
-variable "bucket_names" {
-  description = "Create S3 buckets with these names"
-  type        = list(string)
-  default = [
-    "landing-zone",
-    "processing-zone",
-    "delivery-zone"
-  ]
+variable "bucket_name" {
+  description = "Create S3 bucket with this name"
+  default="titanic"
 }
 
-variable "database_names" {
+variable "database_name" {
   description = "Create databases with these names"
-  type        = list(string)
-  default = [
-    #landing-zone
-    "dl_landing_zone",
-    "dl_rocessing_zone",
-    "dl_delivery_zone"
-  ]
+  default="landing_zone"
 }
 
 variable "bucket_paths" {
   description = "Paths to S3 bucket used by the crawler"
-  type        = list(string)
-  default = [
-    "s3://landing-zone-123456789",
-    "s3://processing-zone-123456789",
-    "s3://delivery-zone-123456789"
-  ]
+  default = "s3://landing-zone-546048762108"
 }
 
 variable "bucket_functions" {
